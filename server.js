@@ -4,8 +4,8 @@ const path = require('path');
 const compression = require('compression');
 
 const app = express();
- 
-app.use(compression())
+
+app.use(compression());
 
 app.use(express.static(path.join(__dirname, 'dist/todolist-frontend')));
 
@@ -17,4 +17,4 @@ const port = process.env.PORT || 3000;
 app.set('port', port)
 
 const server = http.createServer(app)
-server.listen(port, () => console.log('server started ${ port }'))
+server.listen(port, () => console.log("server started"))

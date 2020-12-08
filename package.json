@@ -10,6 +10,10 @@
     "e2e": "ng e2e",
     "postbuild": "ng build --prod"
   },
+  "engines": {
+    "node": ">=10.13.0 <13.0.0",
+    "yarn":">=1.22.4"
+  },
   "private": true,
   "dependencies": {
     "@angular/animations": "~11.0.3",

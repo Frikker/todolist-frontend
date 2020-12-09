@@ -30,7 +30,6 @@ export class ProjectComponent{
               public categoryDialog: MatDialog,
               public dialogRef: MatDialogRef<ProjectComponent>,
               @Inject(MAT_DIALOG_DATA) public data: DialogData) {
-    console.log(data.category)
   };
 
   onNoClick(): void {
@@ -46,7 +45,6 @@ export class ProjectComponent{
     this.http.post('https://todoli-backend.herokuapp.com/todos',
       {"category_id": this.createProjectFrom.value.category,
       "title": this.createProjectFrom.value.title}).subscribe((res)=>{
-        console.log(res);
     });
     this.dialogRef.close();
 
@@ -57,11 +55,9 @@ export class ProjectComponent{
       data: {name: this.name }
     });
     catalogDialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
       this.http.get('https://todoli-backend.herokuapp.com/projects')
         // @ts-ignore
         .subscribe((responce: Category[])=>{
-          console.log(responce)
           this.categories = responce;
         })
     });

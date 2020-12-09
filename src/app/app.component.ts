@@ -30,9 +30,7 @@ export class AppComponent{
     const dialogRef = this.dialog.open(ProjectComponent, {
       data: {title: this.title, category: this.responce }
     });
-    console.log(this.responce)
     dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
       this.takeCategories();
       this.title = result;
     });
@@ -41,15 +39,13 @@ export class AppComponent{
   sendUpdates(project_id: number, category_id: number){
     this.http.patch('https://todoli-backend.herokuapp.com/projects/' + category_id +
       "/todos/" + project_id, {"completed":this.categoryForm.value.completed})
-              .subscribe((val) => { console.log(val);
-    })
+              .subscribe()
   }
 
   takeCategories(){
     this.http.get('https://todoli-backend.herokuapp.com/projects')
       .subscribe((responce)=>{
         this.responce = responce;
-        console.log(this.responce)
       })
   }
 }

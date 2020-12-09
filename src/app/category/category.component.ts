@@ -25,9 +25,7 @@ export class CategoryComponent{
 
   createCategory(){
     this.http.post('https://todoli-backend.herokuapp.com/category',
-      {"name": this.categoryForm.value.name}).subscribe((res)=>{
-      console.log(res);
-    });
+      {"name": this.categoryForm.value.name}).subscribe()
     this.dialogRef.close();
   }
 }

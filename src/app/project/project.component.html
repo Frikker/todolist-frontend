@@ -1,1 +1,18 @@
-<div class="card">Hello</div>
+<form [formGroup]="createProjectFrom">
+  <mat-form-field appearance="fill" >
+    <mat-label>Введите название...</mat-label>
+    <input matInput matNativeControl placeholder="Placeholder" formControlName="title" type="text"/>
+  </mat-form-field>
+  <br/>
+  <mat-form-field appearance="fill" >
+    <mat-select formControlName="category" id="category">
+      <mat-option (click)="openCategoryForm()">Новая Категория</mat-option>
+      <mat-option *ngFor="let category of categories" [value]="category.id">
+        {{category.name}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <br/>
+  <button mat-button type="button" routerLink="" (click)="onNoClick()">Close</button>
+  <button mat-button type="submit" (click)="createProject()">Create</button>
+</form>

@@ -1,3 +1,18 @@
-<div class="container"> <H1> Hello World</H1></div>
-<app-category></app-category>
-
+<header>
+  <span class="header">Задачи</span>
+  <a routerLink="/project" class="add-project" (click)="openDialog()" routerLinkActive="true">+</a>
+</header>
+<div>
+  <section class="category-section" *ngIf="responce">
+    <div class="category-field" *ngFor="let category of responce; index as i">
+      <span class="category-header">{{category.name}}</span>
+      <div *ngFor="let project of category.projects; index as j">
+        <form [formGroup]="categoryForm">
+          <mat-checkbox class="example-margin" formControlName="completed"
+                        [checked] = "project.isCompleted"
+                        (change) = "sendUpdates(project.id, category.id)">{{project.text}}</mat-checkbox>
+        </form>
+      </div>
+    </div>
+  </section>
+</div>

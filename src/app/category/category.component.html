@@ -1,2 +1,8 @@
-<p>category works!</p>
-<app-project></app-project>
+<form [formGroup]="categoryForm">
+  <mat-form-field appearance="fill" >
+    <mat-label>Введите название...</mat-label>
+    <input matInput matNativeControl placeholder="Placeholder" formControlName="name" type="text"/>
+  </mat-form-field>
+  <button mat-button type="button" routerLink="" (click)="onNoClick()">Close</button>
+  <button mat-button type="submit" (click)="createCategory()">Create</button>
+</form>

@@ -30,6 +30,9 @@
     flex-direction: row;
     justify-content: space-between;
     flex-wrap: wrap;
+    .category-header{
+      font-size: 18px;
+    }
     .category-field{
       flex: 27%;
       padding: 1% 2%;

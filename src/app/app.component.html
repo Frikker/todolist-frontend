@@ -9,7 +9,7 @@
       <div *ngFor="let project of category.projects; index as j">
         <form [formGroup]="categoryForm">
           <mat-checkbox class="example-margin" formControlName="completed"
-                        [checked] = "project.isCompleted"
+                        [(ngModel)] = "project.isCompleted"
                         (change) = "sendUpdates(project.id, category.id)">{{project.text}}</mat-checkbox>
         </form>
       </div>

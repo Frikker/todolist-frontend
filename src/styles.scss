@@ -28,15 +28,13 @@
   .category-section{
     display: flex;
     flex-direction: row;
-    justify-content: left;
+    justify-content: space-between;
+    flex-wrap: wrap;
     .category-field{
+      flex: 27%;
       padding: 1% 2%;
       margin-top: 10px;
-      margin-left: 10px;
-      &:first-child{
-        margin-left: 0;
-      }
-      width: 33%;
+      max-width: 27%;
       box-shadow: 0 0 10px lightgray;
       border: 1px solid lightgray;
       border-radius: 5%;

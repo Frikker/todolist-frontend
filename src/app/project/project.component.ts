@@ -59,8 +59,9 @@ export class ProjectComponent{
     catalogDialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
       this.http.get('https://todoli-backend.herokuapp.com/projects')
-        .subscribe((responce)=>{
+        .subscribe((responce: Category[])=>{
           console.log(responce)
+          this.categories = responce;
         })
     });
   }
